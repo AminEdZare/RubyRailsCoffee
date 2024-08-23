@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "image_processing", ">= 1.2"
 gem 'pry-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.0"
