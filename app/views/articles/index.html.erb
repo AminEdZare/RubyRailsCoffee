@@ -1,12 +1,13 @@
-<h1>Articles</h1>
+<h1>Cups of Coffee</h1>
 
-Our blog has <%= Article.public_count %> articles and counting!
+We've drank <%= Article.public_count %> coffee cups and counting!
 
-<ul>
+<ul class = "root-preview-list">
   <% @articles.each do |article| %>
     <% unless article.archived? %>
-      <li>
-        <%= link_to article.title, article %>
+      <li class = "root-preview-item">
+        <div class = "coffee-picture" style="background-size: cover; background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url('<%= url_for(article.coffee_cup) %>');"> </div>
+        <div class = "coffee-name"> <%= link_to article.title, article %> </div>
       </li>
     <% end %>
   <% end %>

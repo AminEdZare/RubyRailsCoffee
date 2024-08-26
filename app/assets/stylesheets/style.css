@@ -1,0 +1,30 @@
+html {
+    background-color: oldlace;
+}
+
+.root-preview-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0px;
+  }
+
+  .root-preview-item {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .coffee-picture {
+    margin: auto;
+    height: 100px;
+  }
+
+  .coffee-name {
+    margin: auto;
+  }
+
+  .root-preview-item:hover{
+    background-color: moccasin;
+  }
