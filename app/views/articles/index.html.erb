@@ -1,16 +1,28 @@
-<h1>Cups of Coffee</h1>
+<h1 class = "root-heading">Cups of Coffee</h1>
 
-We've drank <%= Article.public_count %> coffee cups and counting!
+<h2 class = "root-subheading">We've drunk <span class = "coffee-number"> <%= Article.public_count %></span> coffee cups and counting!</h2>
 
 <ul class = "root-preview-list">
+<li>
+  <%= link_to new_article_path do %>
+    <div class = "add-coffee-button">
+      <span class = "add-coffee-text">Add a Cup</span>
+      <img src="/add_coffee.png" alt="add coffee" />
+    </div>
+  <% end %>
+</li>
   <% @articles.each do |article| %>
     <% unless article.archived? %>
-      <li class = "root-preview-item">
-        <div class = "coffee-picture" style="background-size: cover; background-image: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url('<%= url_for(article.coffee_cup) %>');"> </div>
-        <div class = "coffee-name"> <%= link_to article.title, article %> </div>
-      </li>
+    <li>
+      <%= link_to article do %>
+          <div class = "root-preview-item">
+            <div class = "coffee-name"> <%= article.title %> </div>
+            <div class = "coffee-picture" style="background-size: cover; background-image: url('<%= url_for(article.coffee_cup) %>');"> </div>
+            <div class = "coffee-date"> <%= article.created_at.strftime("%B %d, %Y at %I:%M %p") %> </div>
+          </div>
+        <% end %>
+    </li>
     <% end %>
   <% end %>
 </ul>
 
-<%= link_to "New Article", new_article_path %>
