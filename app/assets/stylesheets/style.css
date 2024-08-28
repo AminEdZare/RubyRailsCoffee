@@ -40,6 +40,10 @@ html {
   height: 100%;
 }
 
+.add-coffee-button:hover {
+  background-color: rgb(255, 212, 169);
+}
+
 .add-coffee-text {
   padding: 8px 0px;
   font-weight: bold;
