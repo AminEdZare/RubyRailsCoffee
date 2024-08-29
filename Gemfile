@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+# Add dotenv gem
+gem 'dotenv-rails', groups: [:development, :test]
 gem "image_processing", ">= 1.2"
 gem 'pry-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
