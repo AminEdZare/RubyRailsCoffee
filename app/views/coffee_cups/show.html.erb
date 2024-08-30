@@ -1,0 +1,20 @@
+<%= link_to "Back", coffee_cups_path %>
+<h1><%= @coffee_cup.title %></h1>
+
+<p><%= @coffee_cup.body %></p>
+
+<%= image_tag @coffee_cup.coffee_cup.variant(:thumb) %>
+
+<ul>
+  <li><%= link_to "Edit", edit_coffee_cup_path(@coffee_cup) %></li>
+  <li><%= link_to "Destroy", coffee_cup_path(@coffee_cup), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+<h2>Comments</h2>
+<%= render @coffee_cup.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form", coffee_cup: @coffee_cup %>

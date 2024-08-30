@@ -1,17 +1,17 @@
 class CommentsController < ApplicationController
-    http_basic_authenticate_with name: "amin", password: "example", only: :destroy
+  http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['SECRET_PASS']
 
     def create
-      @article = Article.find(params[:article_id])
-      @comment = @article.comments.create(comment_params)
-      redirect_to article_path(@article)
+      @coffee_cup = CoffeeCup.find(params[:coffee_cup_id])
+      @comment = @coffee_cup.comments.create(comment_params)
+      redirect_to coffee_cup_path(@coffee_cup)
     end
   
     def destroy
-      @article = Article.find(params[:article_id])
-      @comment = @article.comments.find(params[:id])
+      @coffee_cup = CoffeeCup.find(params[:coffee_cup_id])
+      @comment = @coffee_cup.comments.find(params[:id])
       @comment.destroy
-      redirect_to article_path(@article), status: :see_other
+      redirect_to coffee_cup_path(@coffee_cup), status: :see_other
     end
   
     private

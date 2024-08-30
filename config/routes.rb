@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "articles#index"
+  root "coffee_cups#index"
   
-  resources :articles do
+  resources :coffee_cups do
     resources :comments
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
