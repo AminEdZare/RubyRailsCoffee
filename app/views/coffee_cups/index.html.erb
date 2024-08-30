@@ -1,0 +1,50 @@
+<h1 class = "root-heading">Coffee Readings</h1>
+
+<h2 class = "root-subheading">We've drunk <span class = "coffee-number"> <%= CoffeeCup.public_count %></span> cups of coffee and counting!</h2>
+
+<script>
+function filterByName(event) {
+  const searchTerm = event.target.value.trim().toLowerCase();
+  const listItems = document.querySelectorAll("ul#list li");
+
+  listItems.forEach(function(item) {
+    item.style.display = 'revert';
+
+    if (!item.innerText.toLowerCase().includes(searchTerm)) {
+      item.style.display = 'none';
+    }
+  })
+}
+</script>
+
+<input
+  class="coffee-search-bar" 
+  type="search" 
+  placeholder="Type here to filter the list" 
+  oninput="filterByName(event)"
+>
+
+<ul class = "root-preview-list" id="list">
+<li>
+  <%= link_to new_coffee_cup_path do %>
+    <div class = "add-coffee-button">
+      <span class = "add-coffee-text">Add a Cup</span>
+      <img src="/add_coffee.png" alt="add coffee" />
+    </div>
+  <% end %>
+</li>
+  <% @coffee_cups.each do |coffee_cup| %>
+    <% unless coffee_cup.archived? %>
+    <li>
+      <%= link_to coffee_cup do %>
+        <div class = "root-preview-item">
+          <div class = "coffee-name"> <%= coffee_cup.title %> </div>
+          <div class = "coffee-picture" style="background-size: cover; background-image: url('<%= url_for(coffee_cup.coffee_cup) %>');"> </div>
+          <div class = "coffee-date"> <%= coffee_cup.created_at.in_time_zone("Jerusalem").strftime("%B %d, %Y at %I:%M %p") %> </div>
+        </div>
+      <% end %>
+    </li>
+    <% end %>
+  <% end %>
+</ul>
+
