@@ -3,14 +3,19 @@ html {
 }
 
 .root-heading {
-  margin-top: 36px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   text-align: center;
-  font-size: 48px;
+  font-size: 72px;
+  color: rgb(35, 18, 18);
 }
 
 .root-subheading {
-  margin: 36px 0px;
+  margin: 8px 0px 48px 0px;
   text-align: center;
+  font-size: 22px;
+  font-style: italic;
+  color: rgb(35, 18, 18);
 }
 
 .coffee-number {
@@ -18,16 +23,30 @@ html {
   text-decoration: underline;
 }
 
-.coffee-search-bar {
+.search-bar {
+  position: relative;
+  width: auto;
+  max-width: 584px;
+  min-height: 44px;
+  margin: auto;
+}
+
+#coffee-search-bar {
   margin:auto;
   background-color: brown;
-  width: auto;
-  width: 60%;
+  padding-inline-start: 20px;
+  color: rgb(246, 236, 218);
+  width: 100%;
   height: 40px;
   border-radius: 20px;
   border-color: rgb(138, 38, 38);
   border-style: solid;
-  border-width: 1px;
+  border-width: 4px;
+}
+
+::placeholder {
+  color: rgba(246, 236, 218, 0.537);
+  opacity: 1;
 }
 
 .root-preview-list {
@@ -100,6 +119,6 @@ a {
   color: rgb(85, 85, 85);
 }
 
-.root-preview-item:hover{
+.root-preview-item:hover {
   background-color: moccasin;
 }
