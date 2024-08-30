@@ -2,21 +2,6 @@
 
 <h2 class = "root-subheading">We've drunk <span class = "coffee-number"> <%= CoffeeCup.public_count %></span> cups of coffee and counting!</h2>
 
-<script>
-function filterByName(event) {
-  const searchTerm = event.target.value.trim().toLowerCase();
-  const listItems = document.querySelectorAll("ul#list li");
-
-  listItems.forEach(function(item) {
-    item.style.display = 'revert';
-
-    if (!item.innerText.toLowerCase().includes(searchTerm)) {
-      item.style.display = 'none';
-    }
-  })
-}
-</script>
-
 <input
   class="coffee-search-bar" 
   type="search" 
